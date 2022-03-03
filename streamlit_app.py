@@ -2,14 +2,20 @@ import streamlit as st
 import pandas as pd
 from numpy.random import randint
 
-df = pd.DataFrame({"Col1": [1, 2, 3, 4, 5], "Col2": [4, 5, 6, 7, 8], "Col3": [7, 8, 9, 0, randint(0,10)]})
-dfo = None
+@st.cache
+def load_data():
+  D = pd.DataFrame({"Col1": [1, 2, 3, 4, 5], "Col2": [4, 5, 6, 7, 8], "Col3": [7, 8, 9, 0, randint(0,10)]})
+  return D
+
 
 def cb():
   global df, dfo
   df.Col3[4] += 1
   with dfo:
     st.write(df)
+
+df = load_data()
+dfo = None
 
 st.write("""
 # Hello, world!
