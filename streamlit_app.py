@@ -36,7 +36,9 @@ else:
 
 import time
 with st.empty():
-     for seconds in range(60):
-         st.write(f"⏳ {seconds} seconds have passed")
-         time.sleep(1)
-     st.write("✔️ 1 minute over!")
+  for seconds in range(60):
+    if seconds % 5 == 0:
+      cb()
+    st.write(f"⏳ {seconds} seconds have passed")
+    time.sleep(1)
+  st.write("✔️ 1 minute over!")
