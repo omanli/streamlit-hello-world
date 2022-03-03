@@ -5,4 +5,6 @@ st.write("""
 Here is my *first* app
 """)
 
-v = st.slider("Awesomeness", min_value=0, max_value=120, step=5)
+A = st.slider("Awesomeness", min_value=0, max_value=120, step=5, on_change=None)
+
+SD = st.checkbox("SuperDuper", value=False, on_change=None)
