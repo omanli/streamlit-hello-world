@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 from numpy.random import randint
 
-@st.cache
+@st.cache(allow_output_mutation=True)
 def load_data():
   D = pd.DataFrame({"Col1": [1, 2, 3, 4, 5], "Col2": [4, 5, 6, 7, 8], "Col3": [7, 8, 9, 0, randint(0,10)]})
   return D
