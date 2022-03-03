@@ -1,11 +1,15 @@
 import streamlit as st
 import pandas as pd
 
+df = pd.DataFrame({"Col1": [1, 2, 3, 4, 5], "Col2": [4, 5, 6, 7, 8], "Col3": [7, 8, 9, 0, 1]})
+dfo = None
+
 def cb():
   global df, dfo
   df.Col3[4] += 1
   with dfo:
     st.write(df)
+
 
 st.write("""
 # Hello, world!
@@ -13,7 +17,6 @@ Here is my *first* app
 """)
 
 st.write("Here is a Dataframe")
-df = pd.DataFrame({"Col1": [1, 2, 3, 4, 5], "Col2": [4, 5, 6, 7, 8], "Col3": [7, 8, 9, 0, 1]})
 dfo = st.empty()
 with dfo:
   st.write(df)
