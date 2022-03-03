@@ -5,7 +5,7 @@ st.write("""
 Here is my *first* app
 """)
 
-A = st.slider("Awesomeness", value=80, min_value=0, max_value=120, step=5, format="%d%", on_change=None)
+A = st.slider("Awesomeness", value=80, min_value=0, max_value=120, step=5, format="d%", on_change=None)
 if A > 90:
   st.write("Awesome!")
 
