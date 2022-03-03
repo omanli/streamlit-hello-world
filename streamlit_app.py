@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from np.random import randint
+from numpy.random import randint
 
 df = pd.DataFrame({"Col1": [1, 2, 3, 4, 5], "Col2": [4, 5, 6, 7, 8], "Col3": [7, 8, 9, 0, randint(0,10)]})
 dfo = None
