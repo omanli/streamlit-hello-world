@@ -8,14 +8,17 @@ def load_data():
   return D
 
 
-def cb():
-  global df, dfo
-  df.Col3[4] += 1
+def cb(d):
+  global df, dfo, A
+  df.Col1[0] = A
+  df.Col3[4] += int(d)
   with dfo:
     st.write(df)
 
+
 df = load_data()
 dfo = None
+
 
 st.write("""
 # Hello, world!
@@ -27,7 +30,8 @@ dfo = st.empty()
 with dfo:
   st.write(df)
 
-A = st.slider("Awesomeness", value=80, min_value=0, max_value=120, step=5, format="%d", on_change=cb)
+A = st.slider("Awesomeness", value=80, min_value=0, max_value=120, step=5, format="%d")
+cb(0)
 if A > 90:
   st.write("Awesome!")
 else:
@@ -39,8 +43,9 @@ if SD:
 else:
   st.write("Are you sure this is not Super Duper?")
 
+delta = st.radio("Col3[-1] delta change:",
+                 ('-5', '-1', '+1', '+5'))
+
 if st.button('Call cb'):
-  cb()
-
-
+  cb(delta)
 
